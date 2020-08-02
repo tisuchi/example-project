@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/join', 'JoinController@show')->name('join.show');
+Route::post('/join', 'JoinController@store')->name('join.store');
+
+Route::get('/verify/{token}', 'VerifyEmailController@show')->name('verify.email');
