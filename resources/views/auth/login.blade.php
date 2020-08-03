@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.72.0">
-    <title>Signup · {{ config('app.name') }}</title>
+    <title>Signin · {{ config('app.name') }}</title>
 
     <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/sign-in/">
 
@@ -89,12 +89,12 @@
     <link href="signin.css" rel="stylesheet">
 </head>
 <body class="text-center">
-    <form class="form-signin" method="POST" action="{{ route('join.store') }}">
+    <form class="form-signin" method="POST" action="{{ route('login.store') }}">
         @csrf
 
         @include('templates.partials.alerts')
 
-        <h1 class="h3 mb-3 font-weight-normal">Join</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Login</h1>
 
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
@@ -102,10 +102,10 @@
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" name="password" class="form-control" placeholder="Password" required>
 
-        <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Join now</button>
+        <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Login now</button>
 
         <div class="my-5 pt-5">
-            <a href="#" class="btn btn-secondary">Join via Google</a>
+            <a href="#" class="btn btn-secondary">Login via Google</a>
         </div>
     </form>
 

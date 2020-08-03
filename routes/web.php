@@ -20,4 +20,15 @@ Route::get('/', function () {
 Route::get('/join', 'JoinController@show')->name('join.show');
 Route::post('/join', 'JoinController@store')->name('join.store');
 
+Route::get('/login', 'LoginController@show')->name('login');
+Route::post('/login', 'LoginController@store')->name('login.store');
+
 Route::get('/verify/{token}', 'VerifyEmailController@show')->name('verify.email');
+
+
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::prefix('/dashboard')->group(function () {
+        Route::get('/', 'DashboardController@index')->name('dashboard.index');
+    });
+});

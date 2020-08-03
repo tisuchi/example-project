@@ -15,6 +15,6 @@ class VerifyEmailController extends Controller
             return redirect()->back()->with('danger', 'Token mismatched.');
         }
 
-        return redirect()->route('login.show')->with('success', 'You have successfully verified your email.');
+        return redirect()->route('login')->with('success', 'You have successfully verified your email.');
     }
 }
