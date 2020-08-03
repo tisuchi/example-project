@@ -8,6 +8,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return "Hello Loggedin User.";
+        return view('dashboard.index');
     }
 }

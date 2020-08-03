@@ -32,4 +32,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::prefix('/dashboard')->group(function () {
         Route::get('/', 'DashboardController@index')->name('dashboard.index');
     });
+
+    Route::get('logout', 'LoginController@destroy')->name('logout');
 });
