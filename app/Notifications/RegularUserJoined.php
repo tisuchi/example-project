@@ -12,13 +12,18 @@ class RegularUserJoined extends Notification
     use Queueable;
 
     /**
+     * @var User
+     */
+    private $user;
+
+    /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($user)
     {
-        //
+        $this->user = $user;
     }
 
     /**
@@ -45,7 +50,7 @@ class RegularUserJoined extends Notification
         return (new MailMessage)
                     ->subject($subject)
                     ->line('Please verify your email in order to join.')
-                    ->action('Verify now', url('/'))
+                    ->action('Verify now', $this->user->emailVerifyLink())
                     ->line('Thank you for using our application!');
     }
 
