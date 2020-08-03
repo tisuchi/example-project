@@ -105,7 +105,7 @@
         <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Login now</button>
 
         <div class="my-5 pt-5">
-            <a href="#" class="btn btn-secondary">Login via Google</a>
+            <a href="{{ route('login.provider', 'facebook') }}" class="btn btn-secondary">Login via Facebook</a>
         </div>
     </form>
 

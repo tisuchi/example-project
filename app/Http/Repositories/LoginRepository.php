@@ -14,6 +14,13 @@ class LoginRepository
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
+
+            if (empty(Auth::user()->email_verified_at)){
+                Auth::logout();
+
+                return false;
+            }
+
             // Authentication passed...
             return true;
         }

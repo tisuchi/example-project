@@ -25,7 +25,8 @@ Route::post('/login', 'LoginController@store')->name('login.store');
 
 Route::get('/verify/{token}', 'VerifyEmailController@show')->name('verify.email');
 
-
+Route::get('redirect/{driver}', 'LoginProviderController@show')->name('login.provider');
+Route::get('{driver}/callback', 'LoginProviderController@handleProviderCallback');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::prefix('/dashboard')->group(function () {

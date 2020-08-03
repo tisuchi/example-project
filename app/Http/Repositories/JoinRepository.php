@@ -31,6 +31,10 @@ class JoinRepository
             return false;
         }
 
+        $user->update([
+            'email_verified_at' => now()
+        ]);
+
         return true;
     }
 }
