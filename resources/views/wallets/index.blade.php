@@ -27,14 +27,25 @@
             <tbody>
                 @foreach($wallets as $wallet)
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row">
+                            {{ $loop->iteration }}
+                        </th>
                         <td>{{ $wallet->title }}</td>
                         <td>{{ $wallet->walletType->title }}</td>
-                        <td>{{ $wallet->amount }}</td>
+                        <td width="20%">
+                            <div class="badge bg-light text-success py-2 px-3">
+                                <strong>
+                                    {{ number_format($wallet->total, 2) }}
+                                </strong>
+                            </div>
+                            <a href="{{ route('topup.create', $wallet->id) }}">Top Up</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+
+        {{ $wallets->links() }}
     @else
         <div class="card py-5 my-5">
             <div class="card-body">
