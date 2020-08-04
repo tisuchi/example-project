@@ -18,7 +18,7 @@ class CreateWalletsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('title');
             $table->unsignedInteger('type_id');
-            $table->float('total', 8, 2);
+            $table->float('total', 8, 2)->nullable();
             $table->timestamps();
         });
     }

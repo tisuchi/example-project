@@ -31,6 +31,13 @@ Route::get('{driver}/callback', 'LoginProviderController@handleProviderCallback'
 Route::group(['middleware' => ['auth']], function () {
     Route::prefix('/dashboard')->group(function () {
         Route::get('/', 'DashboardController@index')->name('dashboard.index');
+
+        Route::prefix('/wallets')->group(function () {
+            Route::get('/index', 'WalletController@index')->name('wallets.index');
+
+            Route::get('/create', 'WalletController@create')->name('wallets.create');
+            Route::post('/store', 'WalletController@store')->name('wallets.store');
+        });
     });
 
     Route::get('logout', 'LoginController@destroy')->name('logout');

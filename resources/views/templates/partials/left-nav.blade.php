@@ -8,9 +8,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('wallets.index') }}">
                     <span data-feather="file"></span>
-                    Orders
+                    Wallets
                 </a>
             </li>
             <li class="nav-item">

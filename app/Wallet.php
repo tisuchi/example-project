@@ -12,4 +12,9 @@ class Wallet extends Model
         'type_id',
         'total',
     ];
+
+    public function walletType()
+    {
+        return $this->belongsTo(WalletType::class, 'type_id')->withDefault();
+    }
 }

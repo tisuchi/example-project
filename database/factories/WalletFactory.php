@@ -2,7 +2,9 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\User;
 use App\Wallet;
+use App\WalletType;
 use Faker\Generator as Faker;
 
 $factory->define(Wallet::class, function (Faker $faker) {

@@ -14,6 +14,8 @@ class DashboardTest extends TestCase
     /** @test */
     public function user_can_able_to_access_dashboard()
     {
+        $this->withoutExceptionHandling();
+
         $user = factory(User::class)->create();
 
         $response = $this->actingAs($user)
