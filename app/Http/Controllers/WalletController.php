@@ -12,7 +12,9 @@ class WalletController extends Controller
 {
     public function index()
     {
-        $wallets = Wallet::where('user_id', Auth::user()->id)->latest()->paginate(10);
+        $wallets = Wallet::where('user_id', Auth::user()->id)
+            ->latest()
+            ->paginate(10);
 
         return view('wallets.index')
             ->with('wallets', $wallets);
