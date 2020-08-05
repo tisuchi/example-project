@@ -42,6 +42,10 @@ Route::group(['middleware' => ['auth']], function () {
                 Route::get('/create', 'TransactionController@create')->name('topup.create');
                 Route::post('/store', 'TransactionController@store')->name('topup.store');
             });
+
+            Route::group(['prefix' => '/reports'], function () {
+                Route::get('/', 'ReportsController@index')->name('reports.index');
+            });
         });
     });
 
