@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Repositories\TransactionRepository;
 use App\Http\Requests\TransactionPost;
+use App\Wallet;
 use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
@@ -15,6 +16,10 @@ class TransactionController extends Controller
      */
     public function create()
     {
+        $wallet = Wallet::findOrFail(request()->segment(3));
+
+        isWalletOwner($wallet);
+
         return view('topup.create');
     }
 
