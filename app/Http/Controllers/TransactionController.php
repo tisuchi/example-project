@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Repositories\TransactionRepository;
 use App\Http\Requests\TransactionPost;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
