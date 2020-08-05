@@ -14,7 +14,7 @@ class TransactionTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function a_user_can_able_to_top_up_form()
+    public function a_user_can_able_see_the_top_up_form()
     {
         $this->withoutExceptionHandling();
 
@@ -55,5 +55,29 @@ class TransactionTest extends TestCase
         $this->assertDatabaseHas('wallets', [
             'total' => $wallet->total + $data['amount']
         ]);
+    }
+
+    /** @test */
+    public function a_user_cannot_topup_without_having_a_wallet()
+    {
+        $this->withoutExceptionHandling();
+
+        $wrongWalletId = 110;
+
+        $user = factory(User::class)->create();
+
+        $transactionType = factory(TransactionType::class)->create();
+
+        $data = [
+            'wallet_id' => $wrongWalletId,
+            'amount' => 100,
+            'transaction_type_id' => $transactionType->id,
+        ];
+
+        $response = $this->actingAs($user)
+            ->post(route('topup.store', $wrongWalletId), $data);
+
+        $response->assertStatus(302)
+            ->assertSessionHas('danger');
     }
 }
