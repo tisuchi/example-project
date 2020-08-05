@@ -88,28 +88,38 @@
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
 </head>
-<body class="text-center">
-    <form class="form-signin" method="POST" action="{{ route('join.store') }}">
-        @csrf
+<body class="">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <form class="form-signin" method="POST" action="{{ route('join.store') }}">
+                        @csrf
 
-        @include('templates.partials.alerts')
+                        @include('templates.partials.alerts')
 
-        <h1 class="h3 mb-3 font-weight-normal">Join</h1>
+                        <h1 class="h3 mb-4 font-weight-normal text-muted text-uppercase border-bottom">Join</h1>
 
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+                        <label for="inputEmail" class="sr-only">Email address</label>
+                        <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
 
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="password" class="form-control" placeholder="Password" required>
+                        <label for="inputPassword" class="sr-only">Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Password" required>
 
-        <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Join now</button>
+                        <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Join now</button>
 
-        <div class="my-5 pt-5">
-            <a href="{{ route('login.provider', 'facebook') }}" class="btn btn-secondary">Join via Facebook</a>
+                        <div class="my-5 pt-5 text-center">
+                            <a href="{{ route('login.provider', 'facebook') }}" class="btn btn-secondary">Join via Facebook</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-    </form>
-
-
+        <div class="col-sm-3"></div>
+    </div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
