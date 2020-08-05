@@ -38,7 +38,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/create', 'WalletController@create')->name('wallets.create');
             Route::post('/store', 'WalletController@store')->name('wallets.store');
 
-            Route::prefix('/{walletId}/topup')->group(function () {
+            Route::group(['prefix' => '/{walletId}/topup', 'middleware' => 'check.wallet'], function () {
                 Route::get('/create', 'TransactionController@create')->name('topup.create');
                 Route::post('/store', 'TransactionController@store')->name('topup.store');
             });
