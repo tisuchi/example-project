@@ -20,13 +20,14 @@ class TransactionTest extends TestCase
 
         $user = factory(User::class)->create();
 
-        $wallet = factory(Wallet::class)->create();
+        $wallet = factory(Wallet::class)->create([
+            'user_id' => $user->id
+        ]);
 
         $response = $this->actingAs($user)
             ->get(route('topup.create', $wallet->id));
 
-        $response->assertStatus(200)
-            ->assertSee('Top Up Now');
+        $response->assertStatus(200);
     }
 
     /** @test */
@@ -36,7 +37,9 @@ class TransactionTest extends TestCase
 
         $user = factory(User::class)->create();
 
-        $wallet = factory(Wallet::class)->create();
+        $wallet = factory(Wallet::class)->create([
+            'user_id' => $user->id
+        ]);
 
         $transactionType = factory(TransactionType::class)->create();
 
@@ -55,29 +58,5 @@ class TransactionTest extends TestCase
         $this->assertDatabaseHas('wallets', [
             'total' => $wallet->total + $data['amount']
         ]);
-    }
-
-    /** @test */
-    public function a_user_cannot_topup_without_having_a_wallet()
-    {
-        $this->withoutExceptionHandling();
-
-        $wrongWalletId = 110;
-
-        $user = factory(User::class)->create();
-
-        $transactionType = factory(TransactionType::class)->create();
-
-        $data = [
-            'wallet_id' => $wrongWalletId,
-            'amount' => 100,
-            'transaction_type_id' => $transactionType->id,
-        ];
-
-        $response = $this->actingAs($user)
-            ->post(route('topup.store', $wrongWalletId), $data);
-
-        $response->assertStatus(302)
-            ->assertSessionHas('danger');
     }
 }
