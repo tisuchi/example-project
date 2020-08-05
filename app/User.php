@@ -37,8 +37,41 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Get the email verification link
+     *
+     * @return string
+     */
     public function emailVerifyLink()
     {
         return route('verify.email', $this->token);
+    }
+
+    /**
+     * O2M
+     * A user has many wallets
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function wallets()
+    {
+        return $this->hasMany(Wallet::class);
+    }
+
+    /**
+     * Check a user has at least one wallet or not.
+     * Return true if has wallet, otherwise false.
+     *
+     * @return bool
+     */
+    public function hasWallet()
+    {
+        $wallets = $this->wallets();
+
+        if ($wallets->count() < 1){
+            return false;
+        }
+
+        return true;
     }
 }
