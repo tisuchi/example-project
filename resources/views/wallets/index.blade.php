@@ -54,7 +54,7 @@
                         No wallet yet.
                     </h3>
 
-                    <a class="btn btn-primary my-4" href="">Add New</a>
+                    <a class="btn btn-primary my-4" href="{{ route('wallets.create') }}">Add New</a>
                 </div>
             </div>
         </div>
