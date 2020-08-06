@@ -7,13 +7,16 @@ use Illuminate\Http\Request;
 
 class ReportsController extends Controller
 {
+    /**
+     * Show the index page of report section.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
-        $reports = (new ReportRepository())->index();
-
         return view('reports.index')
             ->with([
-                'reports' => $reports
+                'reports' => (new ReportRepository())->index()
             ]);
     }
 
