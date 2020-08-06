@@ -17,4 +17,9 @@ class Wallet extends Model
     {
         return $this->belongsTo(WalletType::class, 'type_id')->withDefault();
     }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class)->latest();
+    }
 }
