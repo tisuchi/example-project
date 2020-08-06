@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
 
             Route::group(['prefix' => '/reports'], function () {
                 Route::get('/', 'ReportsController@index')->name('reports.index');
+                Route::get('/{walletId}', 'ReportsController@show')->name('reports.show');
             });
         });
     });
