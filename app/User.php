@@ -75,6 +75,11 @@ class User extends Authenticatable
         return true;
     }
 
+    /**
+     * Get the total amount from all wallets of a user.
+     *
+     * @return mixed
+     */
     public function total()
     {
         return $this->wallets->sum('total');
