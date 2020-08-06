@@ -32,6 +32,27 @@ It will download the codebase to `ucraft` folder.
 - Then run `php artisan key:generate` command in terminal.
 
 Now, set up your **database** credentials into `.env` file. 
+```dotenv
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Finally, you need to set up your email client credentials in `.env` file-
+
+```dotenv
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=null
+MAIL_FROM_NAME="${APP_NAME}"
+```
 
 Once done, finally run the following command for database seeder.
 `php artisan db:seed` 
