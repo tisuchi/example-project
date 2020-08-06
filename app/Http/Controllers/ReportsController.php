@@ -20,13 +20,17 @@ class ReportsController extends Controller
             ]);
     }
 
+    /**
+     * Show the transaction details of a page.
+     *
+     * @param $walletId
+     * @return \Illuminate\View\View
+     */
     public function show($walletId)
     {
-        $report = (new ReportRepository())->show($walletId);
-
         return view('reports.show')
             ->with([
-                'report' => $report
+                'report' => (new ReportRepository())->show($walletId)
             ]);
     }
 }
