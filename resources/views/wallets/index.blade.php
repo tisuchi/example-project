@@ -30,7 +30,9 @@
                         <th scope="row">
                             {{ $loop->iteration }}
                         </th>
-                        <td>{{ $wallet->title }}</td>
+                        <td>
+                            <a href="{{ route('reports.show', $wallet->id) }}">{{ $wallet->title }}</a>
+                        </td>
                         <td>{{ $wallet->walletType->title }}</td>
                         <td width="20%">
                             <div class="badge bg-light text-success py-2 px-3">
