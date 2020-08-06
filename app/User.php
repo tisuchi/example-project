@@ -74,4 +74,9 @@ class User extends Authenticatable
 
         return true;
     }
+
+    public function total()
+    {
+        return $this->wallets->sum('total');
+    }
 }
