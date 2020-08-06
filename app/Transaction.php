@@ -21,4 +21,9 @@ class Transaction extends Model
     {
         return $this->belongsTo(Wallet::class)->withDefault();
     }
+
+    public function transactionType()
+    {
+        return $this->belongsTo(TransactionType::class);
+    }
 }
