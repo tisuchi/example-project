@@ -32,4 +32,6 @@ Once you have done everything succcessfully, and run `php artisan serve`, the ap
 If you want to run the Unit Test, then just run the following command. 
 `vendor/bin/phpunit` on the project root directory.
 
+If you have any question, feel free to knock me tisuchi@gmail.com 
+
 Enjoy.  
