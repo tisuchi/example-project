@@ -22,6 +22,11 @@ class Transaction extends Model
         return $this->belongsTo(Wallet::class)->withDefault();
     }
 
+    /**
+     * A transaction is belongs to a transaction type.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function transactionType()
     {
         return $this->belongsTo(TransactionType::class);
