@@ -1,5 +1,5 @@
-# uCraft Task. 
-The purpose of this project is to satisfy the ucraft assignment. 
+# Example Task. 
+The purpose of this project is for example project only.
 
 ## Task Details
 - [x] User should register and login to the system: you need to implement user registration and login flow.
@@ -24,10 +24,10 @@ To install this project, you need to have **Composer** and **git** install in yo
 
 ### How to Install?
 - Open your terminal and run the following command. 
-`git@github.com:tisuchi/ucraft.git`.
+`git@github.com:tisuchi/example-project.git`.
 
-It will download the codebase to `ucraft` folder. 
-- Now, `cd ucraft` and run `composer install`.
+It will download the codebase to `example-project` folder. 
+- Now, `cd example-project` and run `composer install`.
 - Next, type `cp .env.example .env` in the terminal
 - Then run `php artisan key:generate` command in terminal.
 
